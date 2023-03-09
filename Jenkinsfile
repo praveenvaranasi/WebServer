@@ -17,10 +17,7 @@ pipeline {
                     echo "----> Printing out the content of index.html" 
                     cat index.html
                     
-                    docker build . -t tapan111/webserver-tapan:${BUILD_NUMBER}
-
-                    echo '----> Printing out the images'
-                    docker images                                                                                       "
+                    docker build . -t tapan111/webserver-tapan:${BUILD_NUMBER}                                                                                     "
                 '''
             }
         }
