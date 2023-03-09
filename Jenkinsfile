@@ -14,7 +14,7 @@ pipeline {
                     sed -i "s/message/${Message}/g" index.html
                     sed -i "s/BUILD/${BUILD_NUMBER}/g" index.html
 
-                    echo "----> Printing out the content of index.html" 
+                    echo '----> Printing out the content of index.html'
                     cat index.html
                     cat Jenkinsfile
                     docker build . -t tapan111/webserver-tapan:${BUILD_NUMBER}                                                                                     "
