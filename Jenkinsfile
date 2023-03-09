@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '''#! /bin/bash
+                sh '''
                     echo "----> Building the Image"
                     echo "----> Listing the contents in the repo: `ls -l`"
                     
@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Push the Image') {
             steps {
-                sh '''#! /bin/bash
+                sh '''
                     echo '----> Pushing the image to Dockerhub'
                     docker push tapan111/webserver-tapan:${BUILD_NUMBER}
                 '''
