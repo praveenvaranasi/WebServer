@@ -19,7 +19,7 @@ pipeline {
                     
                     docker build . -t tapan111/webserver-tapan:${BUILD_NUMBER}
 
-                    echo "----> Printing out the images"
+                    echo '----> Printing out the images'
                     docker images                                                                                       "
                 '''
             }
@@ -27,7 +27,7 @@ pipeline {
         stage('Push the Image') {
             steps {
                 sh '''#! /bin/bash
-                    echo "----> Pushing the image to Dockerhub"
+                    echo '----> Pushing the image to Dockerhub'
                     docker push tapan111/webserver-tapan:${BUILD_NUMBER}
                 '''
             }
@@ -35,7 +35,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                    echo "----> Launching the container" 
+                    echo '----> Launching the container'
                     docker run --rm -p 8080:80 tapan111/webserver-tapan:${BUILD_NUMBER} -d 
                 '''
             }
