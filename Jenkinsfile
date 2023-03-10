@@ -20,6 +20,14 @@ pipeline {
                '''
             }
         }
+        stage('Push the Image') {
+            steps {
+                sh ''' #! /bin/bash
+                    echo '----> Pushing the image to Dockerhub'
+                    docker push tapan111/webserver-tapan:${BUILD_NUMBER}    
+                '''
+            }
+        }
     }
     post {
         always {
