@@ -7,7 +7,16 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-               echo 'hello'
+               sh '''#! /bin/bash
+                    echo "----> Building the Image"
+                    echo "----> Listing the contents in the repo: `ls -l`"
+                    
+                    sed -i "s/message/${Message}/g" index.html
+                    sed -i "s/BUILD/${BUILD_NUMBER}/g" index.html
+
+                    echo '----> Printing out the content of index.html'
+                    cat index.html
+               '''
             }
         }
     }
