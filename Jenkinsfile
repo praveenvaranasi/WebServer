@@ -16,6 +16,7 @@ pipeline {
 
                     echo '----> Printing out the content of index.html'
                     cat index.html
+                    docker build . -t tapan111/webserver-tapan:${BUILD_NUMBER}
                '''
             }
         }
