@@ -24,7 +24,7 @@ pipeline {
             steps {
                 sh ''' #! /bin/bash
                     echo '----> Pushing the image to Dockerhub'
-                    docker push tapan111/webserver-tapan:${BUILD_NUMBER}    
+                    #docker push tapan111/webserver-tapan:${BUILD_NUMBER}    
                 '''
             }
         }
