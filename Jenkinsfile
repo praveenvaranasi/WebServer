@@ -21,22 +21,6 @@ pipeline {
                 '''
             }
         }
-        stage('Push the Image') {
-            steps {
-                sh '''
-                    echo '----> Pushing the image to Dockerhub'
-                    docker push tapan111/webserver-tapan:${BUILD_NUMBER}
-                '''
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh '''
-                    echo '----> Launching the container'
-                    docker run --rm -p 8080:80 tapan111/webserver-tapan:${BUILD_NUMBER} -d 
-                '''
-            }
-        }
     }
     post {
         always {
