@@ -31,8 +31,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh ''' #! /bin/bash
-                    docker stop $(docker ps -aq)
-                    docker rm $(docker ps -aq)
+                    docker stop $(docker ps -aq) || true
+                    docker rm $(docker ps -aq) || true
                     echo '----> Launching the container'
                     docker run --rm -p 8080:80 tapan111/webserver-tapan:${BUILD_NUMBER} -d
                 '''
